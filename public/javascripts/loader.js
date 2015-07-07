@@ -1,4 +1,4 @@
-var serverUrl = "http://localhost:9000";
+var serverUrl = "";
 var listTicketsUrl = serverUrl + "/api/tickets";
 
 function loadTickets() {
