@@ -5,7 +5,7 @@ function loadTickets() {
 
 	$.get(listTicketsUrl, {}, function(data) {
 
-		var html = "<table>";
+		var html = '<table class="table">';
 		var headerRow = "<tr><th>Title</th><th>Status</th></tr>";
 		html += headerRow;
 		for (t in data) {

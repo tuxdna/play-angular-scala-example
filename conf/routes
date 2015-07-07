@@ -3,16 +3,32 @@
 # ~~~~
 
 # Home page
-GET    /                          controllers.Application.index
+GET    /                                 controllers.Application.index
 
 # Ticket Resources
-GET    /api/tickets                   controllers.TicketController.list()
-GET    /api/ticket/:id                controllers.TicketController.get(id: Int)
-POST   /api/ticket/                   controllers.TicketController.add() 
-POST   /api/ticket/:id/comment        controllers.TicketController.addComment(id: Int)
-POST   /api/ticket/:id/assignTo/:id   controllers.TicketController.reassign(id: Int, csrId: Int)
+GET    /api/tickets                      controllers.TicketController.list()
+GET    /api/ticket/:id                   controllers.TicketController.get(id: Int)
+PUT    /api/ticket/                      controllers.TicketController.add()
+# POST   /api/ticket/:id                   controllers.TicketController.update(id: Int)
+GET    /api/ticket/:id/comments/         controllers.TicketController.getComments(id: Int)
+POST   /api/ticket/:id/comment/          controllers.TicketController.addComment(id: Int)
+POST   /api/ticket/:id/assignTo/:csrId   controllers.TicketController.reassign(id: Int, csrId: Int)
+POST   /api/ticket/:id/status/:status    controllers.TicketController.changeStatus(id: Int, status: String)
+
+# Customer Resources
+GET    /api/customers                    controllers.CustomerController.list()
+PUT    /api/customer/                    controllers.CustomerController.add()
+POST   /api/customer/:id                 controllers.CustomerController.update(id: Int)
+GET    /api/customer/:id                 controllers.CustomerController.get(id: Int)
+
+# CSR Resources
+GET    /api/csrs                         controllers.CSRController.list()
+PUT    /api/csr                          controllers.CSRController.add()
+POST   /api/csr/:id                      controllers.CSRController.update(id: Int)
+GET    /api/csr/:id                      controllers.CSRController.get(id: Int)
+
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET    /webjars/*file             controllers.WebJarAssets.at(file)
-GET    /assets/*file              controllers.Assets.at(path="/public", file)
+GET    /webjars/*file                    controllers.WebJarAssets.at(file)
+GET    /assets/*file                     controllers.Assets.at(path="/public", file)

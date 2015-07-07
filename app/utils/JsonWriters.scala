@@ -23,7 +23,16 @@ object JsonWriters {
       Json.obj(
         "id" -> x.id,
         "ticketId" -> x.ticketId,
-        "text" -> x.text)
+        "text" -> x.text,
+        "csrId" -> x.csrId)
+    }
+  }
+
+  implicit val csrToJson = new Writes[CustomerServiceRepresentative] {
+    def writes(x: CustomerServiceRepresentative): JsValue = {
+      Json.obj(
+        "id" -> x.id,
+        "name" -> x.name)
     }
   }
 
@@ -31,8 +40,8 @@ object JsonWriters {
     def writes(x: Ticket): JsValue = {
       Json.obj(
         "id" -> x.id,
-        "customer" -> x.customer,
-        "comments" -> x.comments,
+        "customerId" -> x.customerId,
+        "assignedTo" -> x.assignedTo,
         "title" -> x.title,
         "area" -> x.area,
         "status" -> x.status)
