@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>New Ticket</h2>
+  <br/>
+  Title:
+  <input type="text" ng-model="t.title" />
+  <br/>
+  Area:
+  <input type="text" ng-model="t.area" />
+  <br/>
+  CustomerId:
+  <input type="text" ng-model="t.customerId" />
+  <br/>
+  <button data-ng-click="addTicket()">Add Ticket</button>
+  <br/> 
+  Entry to be added: <strong>{{ t.title }} -- {{ t.area }} -- {{ t.customerId }}<strong>
+  <br/>
+</div>

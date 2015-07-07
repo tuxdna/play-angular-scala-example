@@ -1,0 +1,18 @@
+<div class="container">
+	<h2>All Customers</h2>
+	Name: <br /> <input type="text" data-ng-model="name" /> <br />
+	<table>
+		<tbody class="table">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+			</tr>
+			<tr data-ng-repeat="c in customers | filter:name | orderBy: 'id'">
+				<td><a href="#/customer/{{c.id}}">{{c.name}}</a></td>
+				<td>{{c.email}}</td>
+				<td>{{c.phone}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

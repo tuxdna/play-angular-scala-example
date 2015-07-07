@@ -1,0 +1,52 @@
+<div>
+	Title: {{ticket.title}}
+	<br/>
+	
+	Area: {{ticket.area}}
+	<br/>
+
+    Status: {{ticket.status}}
+    
+    <select data-ng-model="selectedChangeStatus">
+        <option data-ng-repeat="status in ['New', 'Open', 'Closed']" value="{{status}}">{{status}}</option>
+    </select>
+    
+	<button data-ng-click="changeStatus()">Change Status</button>
+    <br/>
+
+    Customer:
+    <a href="#/customer/{{ticket.customer.id}}">
+    {{ticket.customer.name}}&lt;{{ticket.customer.email}}&gt;
+    </a>
+    <br/>
+    
+    AssignedTo: {{ticket.assignedTo ? ticket.assignedTo : "Unassigned"}}
+    
+    <select data-ng-model="selectedCsrId">
+        <option data-ng-repeat="csr in csrs" value="{{csr.id}}">{{csr.name}}</option>
+    </select>
+    
+	<button data-ng-click="assignTicket()">{{ticket.csr.name ? "Reassign" : "Assign"}} Ticket</button>
+	<br/>
+
+
+    Comments:
+	<ul>
+		<li data-ng-repeat="comment in ticket.comments | orderBy: '- comment.id' ">
+			<div>
+				{{comment.text}} <br />
+			</div>
+		</li>
+	</ul>
+	
+	
+	
+		Add comment:
+	    <input type="text" data-ng-model="commentText" />
+		<button data-ng-click="addComment()">Add Comment</button>
+		Comment to be added: {{commentText}}
+	<div data-ng-if="ticket.assignedTo">
+    </div>	
+	<br/>
+
+</div>

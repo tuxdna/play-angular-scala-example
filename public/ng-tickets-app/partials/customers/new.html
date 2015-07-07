@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>New Customer</h2>
+  <br/>
+  Name:
+  <input type="text" ng-model="c.name" />
+  <br/>
+  Email:
+  <input type="text" ng-model="c.email" />
+  <br/>
+  Phone:
+  <input type="text" ng-model="c.phone" />
+  <br/>
+  <button data-ng-click="addCustomer()">Add Customer</button>
+  <br/> 
+  Entry to be added: <strong>{{ c.name }} -- {{ c.email }} -- {{ c.phone }}<strong>
+  <br/>
+</div>
+

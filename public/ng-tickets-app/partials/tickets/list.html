@@ -1,0 +1,22 @@
+<div class="container">
+	<h2>All Tickets</h2>
+	Name: <br /> <input type="text" data-ng-model="title" /> <br />
+	<table>
+		<tbody class="table">
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Area</th>
+				<th>Status</th>
+				<th>Assigned To</th>
+			</tr>
+			<tr data-ng-repeat="t in tickets | filter:title | orderBy: 'id'">
+				<td><a href="#/ticket/{{t.id}}">{{t.id}}</a></td>
+				<td><a href="#/ticket/{{t.id}}">{{t.title}}</a></td>
+				<td>{{t.area}}</td>
+				<td>{{t.status}}</td>
+				<td>{{t.assignedTo ? "Assigned" : "Unassigned"}} {{t.assignedTo}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
